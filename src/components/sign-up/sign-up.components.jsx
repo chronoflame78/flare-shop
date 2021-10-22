@@ -24,14 +24,14 @@ class SignUp extends React.Component {
     event.preventDefault();
 
     const { signUpStart } = this.props;
-    const {displayName, email, password, confirmPassword} = this.state;
+    const { displayName, email, password, confirmPassword } = this.state;
 
-    if(password !== confirmPassword){
-        alert("password don't match");
-        return;
+    if (password !== confirmPassword) {
+      alert("password don't match");
+      return;
     }
 
-    signUpStart({displayName, email, password});
+    signUpStart({ displayName, email, password });
   };
 
   handleChange = (event) => {
@@ -41,7 +41,7 @@ class SignUp extends React.Component {
   };
 
   render() {
-    const {displayName, email, password, confirmPassword} = this.state;
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
         <h2 className="title">I do not have a account</h2>
@@ -79,15 +79,15 @@ class SignUp extends React.Component {
             label="Confirm Password"
             required
           />
-          <CustomButton type='submit'>SIGN UP</CustomButton>
+          <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
-})
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials)),
+});
 
 export default connect(null, mapDispatchToProps)(SignUp);
